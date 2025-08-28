@@ -66,7 +66,7 @@ export default function Home() {
             {privateData && (
               <View>
                 <Text className="text-muted-foreground">
-                  {privateData.data?.message}
+                  {(privateData.data as any)?.message}
                 </Text>
               </View>
             )}
