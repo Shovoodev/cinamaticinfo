@@ -1,7 +1,7 @@
 import { Container } from "@/components/container";
 import { useLocalSearchParams } from "expo-router";
 import React from "react";
-import { Text } from "react-native";
+import { Image, Text } from "react-native";
 
 const MovieDetails = () => {
   const { id } = useLocalSearchParams();
