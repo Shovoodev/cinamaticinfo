@@ -38,8 +38,18 @@ app.use("/rpc/*", async (c, next) => {
 app.get("/", (c) => {
   return c.text("OK");
 });
+app.get("/movies", async (c) => {
+  try {
+    const movies = await fetchMovies({ query: "" });
+    return c.json(movies);
+  } catch (err) {
+    console.error("Error fetching movies:", err);
+    return c.json({ error: (err as Error).message }, 500);
+  }
+});
 
 import { serve } from "@hono/node-server";
+import fetchMovies from "./db/api";
 
 serve(
   {

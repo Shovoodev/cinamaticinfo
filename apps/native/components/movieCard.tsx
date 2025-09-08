@@ -4,7 +4,7 @@ import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 interface MovieProps {
-  id: string;
+  id: number;
   title: string;
   poster_path: string;
   vote_average: number;

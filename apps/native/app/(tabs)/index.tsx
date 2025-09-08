@@ -13,13 +13,19 @@ import {
 import useFetch from "@/services/useFetch";
 import fetchMovies from "@/utils/api";
 import MovieCard from "@/components/movieCard";
+import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { orpc } from "@/utils/orpc";
 export default function HomeScreen() {
+  const [searchString, setSearchString] = useState("");
   const router = useRouter();
   const {
     data: movies,
-    loading: moviesLoading,
+    isLoading: moviesLoading,
     error: moviesError,
-  } = useFetch(() => fetchMovies({ query: "" }));
+  } = useQuery(orpc.movies.getAll.queryOptions());
+
+  const onSearch = (e: any) => {};
 
   return (
     <View className="flex-1 bg-black">
